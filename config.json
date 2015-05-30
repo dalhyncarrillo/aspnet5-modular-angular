@@ -1,0 +1,10 @@
+{
+    "AppSettings": {
+        "SiteTitle": "Angular Plugin Architecture"
+    },
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "Server=.;Database=aspnet5-AngularPlugin;Trusted_Connection=True;MultipleActiveResultSets=true"
+        }
+    }
+}
