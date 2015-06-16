@@ -1,11 +1,26 @@
+@using AngularPlugin.Helpers;
+@using Newtonsoft.Json;
 @{
     ViewBag.Title = "Sensitech Plugin Demo";
 }
 
 <h2>Email: @ViewBag.Email</h2>
 
-<ul id="module-list">
-    @foreach(var module in ViewBag.Modules){
-        <li>@module.Name</li>
-    }
-</ul>
+<div ng-app="csWebApp">
+    <div ui-view></div>
+    
+    <ul id="module-list">
+        @foreach(var module in ViewBag.Modules){
+            <li>@module.Name</li>
+        }
+    </ul>
+</div>
+
+@section modules{
+    <script type="text/javascript">
+        window.enabledModules = @Html.Raw(JsonHelper.Convert(ViewBag.Modules) as string);
+    </script>
+    <!--@foreach(var module in ViewBag.Modules){
+        <script type="text/javascript" src="js/@(module.Name).js"></script>
+    }-->
+}

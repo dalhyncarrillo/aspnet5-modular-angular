@@ -47,6 +47,10 @@ namespace AngularPlugin
                 // sends the request to the following path or controller action.
                 app.UseErrorHandler("/Home/Error");
             }
+            
+
+            // Add static files to the request pipeline.
+            app.UseStaticFiles();
 
             var sampleData = ActivatorUtilities.CreateInstance<DatabaseInitializer>(app.ApplicationServices);
             sampleData.Initialize();

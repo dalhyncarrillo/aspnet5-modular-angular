@@ -8,6 +8,7 @@ var pkg        = require('./package.json');
 var webpack    = require('gulp-webpack-build');
 var path       = require('path');
 var tslint     = require('gulp-tslint');
+var templates  = require('gulp-angular-templatecache');
 //var run        = require('gulp-run');
 //var rev        = require('gulp-rev');
 
@@ -23,7 +24,8 @@ gulp.task('css', ['clean'], function () {
 
 gulp.task('lint', [], function() {
     return gulp.src(pkg.paths.source.js)
-        .pipe(tslint());
+        .pipe(tslint())
+        .pipe(tslint.report('verbose'));
 });
 
 gulp.task('clean', function (cb) {
@@ -73,3 +75,9 @@ gulp.task('webpack', ['clean', 'lint'], function() {
         }))
         .pipe(gulp.dest(pkg.paths.dest.js));
 });
+
+// gulp.task('js:templates', ['clean'], function () {
+//     gulp.src('src/js/templates/**/*.html')
+//         .pipe(templates('templates.js', { standalone: true }))
+//         .pipe(gulp.dest(pkg.paths.dest.js));
+// });
