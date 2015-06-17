@@ -12,7 +12,8 @@ var config = {
         // module4: './src/js/module4/module.ts'
     },
     output: {
-        filename: '[name].js'
+        filename: './js/[name].js',
+        chunkFilename: "./js/[name].js"
     },
     resolve: {
         extensions: ['', '.webpack.js', '.web.js', '.js', '.ts'],
@@ -23,16 +24,16 @@ var config = {
     module: {
         noParse: [],
         loaders: [
-            { test: /\.html$/, loader: 'html-loader' },
+            { test: /\.html$/, loader: 'raw' },
             {
               test: /\.ts$/,
               loader: 'typescript-loader?module=commonjs'
             }
         ]
     },
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     plugins: [
-       new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+       //new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
        new ngAnnotatePlugin({
            add: true,
            // other ng-annotate options here 

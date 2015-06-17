@@ -20,18 +20,19 @@ csWebApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$
 	          controller: AppCtrl.AppCtrl,
             controllerAs: 'appVm'
 	    })
-      .state('breweryList', {
+      .state('breweryModule', {
         url: '/breweries',
         templateProvider: ['$q', function($q) {
            var deferred = $q.defer();
   
            require.ensure([], function() {
-              var template = require('html!./breweryModule/breweries.html');
+              var template = require('./breweryModule/breweries.html');
               deferred.resolve(template);
            });
            return deferred.promise;
         }],
         controller: 'BreweryCtrl',
+        controllerAs: 'breweryVm',
         resolve: ['$q', '$ocLazyLoad', function($q, $ocLazyLoad) {
            var deferred = $q.defer();
   
@@ -40,7 +41,88 @@ csWebApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$
               $ocLazyLoad.load({
                   name: 'breweryModule',
               });
-              deferred.resolve(mod.controller);
+              deferred.resolve(mod);
+           });
+  
+           return deferred.promise;
+        }]
+     })
+     .state('module2', {
+        url: '/module2',
+        templateProvider: ['$q', function($q) {
+           var deferred = $q.defer();
+  
+           require.ensure([], function() {
+              var template = require('./module2/module2.html');
+              deferred.resolve(template);
+           });
+           return deferred.promise;
+        }],
+        controller: 'Module2Ctrl',
+        controllerAs: 'm2Vm',
+        resolve: ['$q', '$ocLazyLoad', function($q, $ocLazyLoad) {
+           var deferred = $q.defer();
+  
+           require.ensure([], function() {
+              var mod = require('./module2/module');
+              $ocLazyLoad.load({
+                  name: 'module2Module',
+              });
+              deferred.resolve(mod);
+           });
+  
+           return deferred.promise;
+        }]
+     })
+     .state('module3', {
+        url: '/module3',
+        templateProvider: ['$q', function($q) {
+           var deferred = $q.defer();
+  
+           require.ensure([], function() {
+              var template = require('./module3/module3.html');
+              deferred.resolve(template);
+           });
+           return deferred.promise;
+        }],
+        controller: 'Module3Ctrl',
+        controllerAs: 'm3Vm',
+        resolve: ['$q', '$ocLazyLoad', function($q, $ocLazyLoad) {
+           var deferred = $q.defer();
+  
+           require.ensure([], function() {
+              var mod = require('./module3/module');
+              $ocLazyLoad.load({
+                  name: 'module3Module',
+              });
+              deferred.resolve(mod);
+           });
+  
+           return deferred.promise;
+        }]
+     })     
+     .state('module4', {
+        url: '/module4',
+        templateProvider: ['$q', function($q) {
+           var deferred = $q.defer();
+  
+           require.ensure([], function() {
+              var template = require('./module4/module4.html');
+              deferred.resolve(template);
+           });
+           return deferred.promise;
+        }],
+        controller: 'Module4Ctrl',
+        controllerAs: 'm4Vm',
+        resolve: ['$q', '$ocLazyLoad', function($q, $ocLazyLoad) {
+           var deferred = $q.defer();
+  
+           require.ensure([], function() {
+              var mod = require('./module4/module');
+              $ocLazyLoad.load({
+                  name: 'module4Module',
+              });
+              deferred.resolve(mod);
            });
   
            return deferred.promise;

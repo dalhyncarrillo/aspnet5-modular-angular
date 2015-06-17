@@ -48,7 +48,7 @@ gulp.task('watch', ['build'], function() {
                             verbose: true,
                             version: false
                         }))
-                        .pipe(gulp.dest(pkg.paths.dest.js));
+                        .pipe(gulp.dest(pkg.paths.dest.baseDir));
                 }));
         }
     });
@@ -73,7 +73,7 @@ gulp.task('webpack', ['clean', 'lint'], function() {
             errors: true,
             warnings: true
         }))
-        .pipe(gulp.dest(pkg.paths.dest.js));
+        .pipe(gulp.dest(pkg.paths.dest.baseDir));
 });
 
 // gulp.task('js:templates', ['clean'], function () {

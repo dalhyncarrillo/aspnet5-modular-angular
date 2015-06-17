@@ -11,7 +11,9 @@
     
     <ul id="module-list">
         @foreach(var module in ViewBag.Modules){
-            <li>@module.Name</li>
+            <li>
+                <a ui-sref="@module.Name">@module.Name</a>
+            </li>
         }
     </ul>
 </div>

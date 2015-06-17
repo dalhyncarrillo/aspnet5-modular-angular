@@ -1,7 +1,8 @@
 <div>
+	<span>{{breweryVm.message}}</span>
 	<h3>Favorite Breweries</h3>
-	<ul>
-		<li ng-repeat="brewery in breweryVm.favoriteBreweries">
+	<ul ng-repeat="brewery in breweryVm.favoriteBreweries track by $index">
+		<li>
 			{{brewery}}
 		</li>
 	</ul>

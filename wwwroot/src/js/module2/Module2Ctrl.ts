@@ -1,7 +1,6 @@
 /// <reference path="../typings/angularjs/angular.d.ts" />
 
-export class BreweryCtrl {
-	public favoriteBreweries: string[];
+export class Module2Ctrl {
 	public message: string;
 
 	// $inject annotation.
@@ -18,7 +17,6 @@ export class BreweryCtrl {
 		private $scope: ng.IScope,
 		private $location: ng.ILocationService
 	) {
-		this.message = 'Welcome to the brewery page';
-		this.favoriteBreweries = ['Lawsons', 'Alchemist', 'Fiddlehead', 'Lost Nation'];
+		this.message = 'Welcome to Module 2!';
 	}
 }
