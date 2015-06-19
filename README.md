@@ -1,4 +1,4 @@
-# Sensitech Plugin Architecture
+# Angular Modular Plugin Architecture
 
 ## Getting Started
 - Install asp.net 5 following directions here: https://github.com/aspnet/home -- @powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
